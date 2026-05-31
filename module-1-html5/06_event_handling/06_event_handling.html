@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Event Feedback</title>
+</head>
+
+<body>
+
+  <h2>Event Feedback Form</h2>
+
+  <!-- Phone (onblur validation) -->
+  <label>Phone Number:</label>
+  <input type="text" id="phone" onblur="validatePhone()">
+  <p id="phoneMsg"></p>
+
+  <br><br>
+
+  <!-- Dropdown (onchange fee display) -->
+  <label>Select Event:</label>
+  <select id="event" onchange="showFee()">
+    <option value="">--Select--</option>
+    <option value="music">Music - ₹500</option>
+    <option value="tech">Tech - ₹1000</option>
+    <option value="sports">Sports - ₹700</option>
+  </select>
+
+  <p id="feeMsg"></p>
+
+  <br>
+
+  <!-- Submit button (onclick) -->
+  <button onclick="submitForm()">Submit</button>
+
+  <p id="confirmMsg"></p>
+
+  <br>
+
+  <!-- Image (ondblclick enlarge) -->
+  <img src="music-concert.jpg"
+       id="bigImage"
+       ondblclick="toggleImage()"
+       width="150">
+
+  <p>Double click image to enlarge</p>
+
+  <br>
+
+  <!-- Feedback textarea (keyboard event) -->
+  <textarea id="feedback"
+            onkeyup="countChars()"
+            placeholder="Type your feedback..."></textarea>
+
+  <p id="charCount">Characters: 0</p>
+
+  <script>
+
+    // onblur validation
+    function validatePhone() {
+      let phone = document.getElementById("phone").value;
+      let msg = document.getElementById("phoneMsg");
+
+      if (phone.length === 10 && !isNaN(phone)) {
+        msg.innerText = "Valid phone number";
+      } else {
+        msg.innerText = "Invalid phone number";
+      }
+    }
+
+    // onchange fee display
+    function showFee() {
+      let event = document.getElementById("event").value;
+      let fee = document.getElementById("feeMsg");
+
+      if (event === "music") fee.innerText = "Fee: ₹500";
+      else if (event === "tech") fee.innerText = "Fee: ₹1000";
+      else if (event === "sports") fee.innerText = "Fee: ₹700";
+      else fee.innerText = "";
+    }
+
+    // onclick submit
+    function submitForm() {
+      document.getElementById("confirmMsg").innerText =
+        "Form submitted successfully!";
+    }
+
+    // ondblclick image enlarge
+    function toggleImage() {
+      let img = document.getElementById("bigImage");
+
+      if (img.width === 150) {
+        img.width = 300;
+      } else {
+        img.width = 150;
+      }
+    }
+
+    // onkeyup character counter
+    function countChars() {
+      let text = document.getElementById("feedback").value;
+      document.getElementById("charCount").innerText =
+        "Characters: " + text.length;
+    }
+
+  </script>
+
+</body>
+</html>

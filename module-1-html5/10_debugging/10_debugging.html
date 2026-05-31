@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chrome DevTools Debugging Demo</title>
+</head>
+<body>
+
+    <h2 id="count">0</h2>
+    <button onclick="increase()">Increase Count</button>
+
+    <script>
+        let count = 0;
+
+        function increase() {
+            count++;
+            console.log("Current Count:", count);
+            document.getElementById("count").innerHTML = count;
+        }
+    </script>
+
+    <hr>
+
+    <h3>Explanation</h3>
+    <p>
+        This webpage demonstrates debugging using Chrome DevTools. The button increases a counter value,
+        updates it on the webpage, and logs the value in the Console tab. The Elements tab is used to
+        modify styles, and the Sources tab is used to add breakpoints and inspect variable values.
+    </p>
+
+    <h3>Outcome</h3>
+    <p>
+        Successfully used Chrome DevTools to inspect elements, view console logs, and debug JavaScript
+        using breakpoints to analyze variable values during execution.
+    </p>
+
+</body>
+</html>

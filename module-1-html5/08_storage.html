@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Preferences</title>
+</head>
+
+<body>
+
+  <h2>Select Your Event Type</h2>
+
+  <!-- Dropdown -->
+  <select id="eventType" onchange="savePreference()">
+    <option value="">-- Select Event --</option>
+    <option value="music">Music Concert</option>
+    <option value="tech">Tech Event</option>
+    <option value="sports">Sports Event</option>
+    <option value="art">Art Exhibition</option>
+  </select>
+
+  <br><br>
+
+  <!-- Message -->
+  <p id="message"></p>
+
+  <br>
+
+  <!-- Clear Button -->
+  <button onclick="clearPreferences()">Clear Preferences</button>
+
+  <script>
+    const selectBox = document.getElementById("eventType");
+    const message = document.getElementById("message");
+
+    // Load saved value on page reload
+    window.onload = function () {
+      const savedEvent = localStorage.getItem("preferredEvent");
+
+      if (savedEvent) {
+        selectBox.value = savedEvent;
+        message.innerText = "Loaded saved preference: " + savedEvent;
+      }
+    };
+
+    // Save selection
+    function savePreference() {
+      const selected = selectBox.value;
+
+      if (selected !== "") {
+        localStorage.setItem("preferredEvent", selected);
+        sessionStorage.setItem("sessionEvent", selected);
+
+        message.innerText = "Preference saved: " + selected;
+      } else {
+        message.innerText = "";
+      }
+    }
+
+    // Clear storage
+    function clearPreferences() {
+      localStorage.clear();
+      sessionStorage.clear();
+
+      selectBox.value = "";
+      message.innerText = "Preferences cleared!";
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Video Invite with Events</title>
+</head>
+
+<body>
+
+  <h2>Event Promo Video</h2>
+
+  <!-- Video Section -->
+  <video width="400" controls oncanplay="videoReady()">
+    <source src="promo.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <p id="message"></p>
+
+  <hr>
+
+  <!-- Form Section -->
+  <h3>Registration Form</h3>
+
+  <form>
+    Name: <input type="text" id="name"><br><br>
+    Email: <input type="email" id="email"><br><br>
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    // oncanplay event
+    function videoReady() {
+      document.getElementById("message").innerText =
+        "Video is ready to play";
+    }
+
+    // onbeforeunload event
+    window.onbeforeunload = function () {
+      let name = document.getElementById("name").value;
+      let email = document.getElementById("email").value;
+
+      if (name !== "" || email !== "") {
+        return "You have unsaved changes. Are you sure you want to leave?";
+      }
+    };
+  </script>
+
+</body>
+</html>
