@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Community Event Portal</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            margin: 20px;
+        }
+
+        .card {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        #message {
+            margin-top: 10px;
+        }
+
+        .success { color: green; }
+        .error { color: red; }
+    </style>
+</head>
+
+<body>
+
+<h1>Community Event Portal</h1>
+
+<div id="output"></div>
+<div id="eventContainer"></div>
+
+<hr>
+
+<!-- Filter -->
+<select id="category">
+    <option value="All">All</option>
+    <option value="Music">Music</option>
+    <option value="Workshop">Workshop</option>
+    <option value="Sports">Sports</option>
+</select>
+
+<br><br>
+
+<!-- Search -->
+<input type="text" id="search" placeholder="Search Event">
+
+<br><br>
+
+<!-- Button -->
+<button id="registerBtn">Register</button>
+
+<hr>
+
+<!-- Form -->
+<form id="eventForm">
+
+    <input type="text" name="name" placeholder="Enter Name">
+    <br><br>
+
+    <input type="email" name="email" placeholder="Enter Email">
+    <br><br>
+
+    <select name="eventName">
+        <option>Music Fest</option>
+        <option>Baking Workshop</option>
+        <option>Football Match</option>
+    </select>
+
+    <br><br>
+
+    <button type="submit">Submit</button>
+
+</form>
+
+<p id="message"></p>
+
+<!-- jQuery for exercise14 -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<!-- DEFAULT: CHANGE ONLY THIS LINE -->
+<script src="exercise1.js"></script>
+
+</body>
+</html>
